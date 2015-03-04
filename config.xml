@@ -18,9 +18,7 @@
   <preference name="android-installLocation" value="auto"/>
     
   <gap:platform name="android" />    
-  
-  <gap:plugin name="org.apache.cordova.camera"/>
-  <gap:plugin name="org.apache.cordova.media-capture"/>
+
   <gap:plugin name="org.apache.cordova.device"/>
   <gap:plugin name="org.apache.cordova.geolocation"/> 
   <gap:plugin name="org.apache.cordova.splashscreen"/>
