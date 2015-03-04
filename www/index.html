@@ -4,22 +4,24 @@
     <title>
         Let's Talk
     </title>
+    <link rel="stylesheet" type="text/css" href="css/bthere.css">
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
         
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-             var parent = document.getElementById("container");
-                    var child = document.getElementsByClassName("text");
-                    parent.removeChild(child[0]);
+           
         }
     </script>
 </head>
 
 <body>
-    <section id="container">
-        <p class="text">This is going to be awesome</p> 
+    <section id="container" style="margin-top:25%;         
+                                            ">
+        <button class="button--large--cta" >Join</button>
+        <button class="button--large--cta" >Let's Talk</button>
+        
     </section>
 </body>
 
