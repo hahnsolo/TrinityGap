@@ -20,7 +20,9 @@
 
             function join() {
                     var buttons = document.getElementById("buttons");
-                    buttons.style.visibility = "hidden";
+                    buttons.style.display = "none";
+                    var buttons = document.getElementById("buttons");
+                    buttons.style.display = "block";
                 }
             }
     </script>
@@ -29,13 +31,13 @@
 <body>
 
     <!-- main button section -->
-    <section id="buttons" style="margin-top:60%">
+    <section id="buttons" style="margin-top:25%; height:50%;">
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
 
     <!-- main signup form -->
-    <section id="signupform" style="margin-top:60%; visibility:hidden;">
+    <section id="signupform" style="margin-top:25%; height:50%; display:none;">
         <input type="text" class="text-input" placeholder="Name" value="">
         <br>
         <input type="text" class="text-input" placeholder="Name" value="" disabled>
