@@ -10,34 +10,40 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-        
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-           document.getElementById("join").addEventListener("click", join);
+            document.getElementById("join").addEventListener("click", join);
+            document.getElementById("reachOut").addEventListener("click", join);
 
-            
-            
+
+
             function join() {
-                
-                  $( "#container" ).fadeOut( "slow", function() {
-                    // Animation complete.
-                  });
-            
+
+                    var buttons = document.getElementById("buttons");
+                    buttons.style.display = "hidden";
+    
+                }
             }
-            
-        }
-        
     </script>
 </head>
 
 <body>
-    <section id="container" style="margin-top:40%;         
-                                            ">
-        <button class="button--large--cta" id="join" >Join The Movement</button>
-        <button class="button--large--cta" id="reachOut" >Reach Out</button>
-        
+
+    <!-- main button section -->
+    <section id="buttons" style="margin-top:60%">
+        <button class="button--large--cta" id="join">Join The Movement</button>
+        <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
+
+    <!-- main signup form -->
+    <section id="signupform" style="margin-top:60%; visibility:hidden;">
+        <input type="text" class="text-input" placeholder="Name" value="">
+        <br>
+        <input type="text" class="text-input" placeholder="Name" value="" disabled>
+        <button class="button--large--cta" id="join">Sign Up</button>
+    </section>
+
 </body>
 
 </html>
