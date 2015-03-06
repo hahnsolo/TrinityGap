@@ -22,13 +22,17 @@
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
 
+                var email = window.localStorage.getItem("BThereEmail"),
+                    password = window.localStorage.getItem("BTherePassword");
+
                 alert("test");
                 $.ajax({
                     url: "http://www.greenseedmusic.com/btherelogin.php",
                     data: {
-                        email: window.localStorage.getItem("BThereEmail"),
-                        password: window.localStorage.getItem("BTherePassword")
+                        email: email,
+                        password: password
                     },
+                    async: true,
                     type: "POST",
                     error: function (data) {
                         alert("error");
