@@ -14,42 +14,49 @@
 
         function onDeviceReady() {
 
-            document.getElementById("join").addEventListener("click", join);
-            document.getElementById("reachOut").addEventListener("click", join);
+                document.getElementById("join").addEventListener("click", join);
+                document.getElementById("reachOut").addEventListener("click", join);
+
+                if (window.localStorage.getItem("BThere") === "true") {
+                    $.ajax({
+                            type: 'POST',
+                            url: 'http://www.greenseedmusic.com/btherelogin.php',
+                            data: 'email=' + window.localStorage.getItem("BThereEmail" + '&password=' + window.localStorage.getItem("BTherePassword"),
+                                success: function (msg) {
+
+                                }
+                            });
+                    }
+
+                    $('#Signup').submit(function () {
 
 
-            $('#Signup').submit(function () {
+                        $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
 
-        
-                $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
-                
-                    var email = $("#signupEmail").val();
-                    var password = $("#signupPassword").val();
-                    window.localStorage.setItem("BThere","true");
-                    window.localStorage.setItem("BThereEmail",email);
-                    window.localStorage.setItem("BTherePassword",password);
-                    
-                    alert(window.localStorage.getItem("BThereEmail"));
-                    
-                }).fail(function () {
+                            var email = $("#signupEmail").val();
+                            var password = $("#signupPassword").val();
+                            window.localStorage.setItem("BThere", "true");
+                            window.localStorage.setItem("BThereEmail", email);
+                            window.localStorage.setItem("BTherePassword", password);
 
-                    alert("Posting failed.");
+                            alert(window.localStorage.getItem("BThereEmail"));
 
-                });
-                return false;
-            });
+                        }).fail(function () {
 
+                            alert("Posting failed.");
 
+                        });
+                        return false;
+                    });
 
-
-            function join() {
-                var buttons = document.getElementById("buttons");
-                buttons.style.display = "none";
-                var buttons = document.getElementById("signupformsection");
-                buttons.style.display = "block";
-                alert("hey");
-            }
-        }
+                    function join() {
+                        var buttons = document.getElementById("buttons");
+                        buttons.style.display = "none";
+                        var buttons = document.getElementById("signupformsection");
+                        buttons.style.display = "block";
+                        alert("hey");
+                    }
+                }
     </script>
 </head>
 
