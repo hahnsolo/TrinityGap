@@ -13,18 +13,34 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
+            
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
-            $("#submitForm").click(function (event) {
-                event.stopPropagation();
-
-            });
-
+            
+            
+            $(function () {
+                $('#Signup').submit(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://www.greenseedmusic.com/bthereinsert.php',
+                        data: {
+                            name: $(this).name.value,
+                            password: $(this).password.value,
+                            nickname: $(this).nickname.value,
+                            email: $(this).email.value,
+                            bio: $(this).bio.value,
+                            fact: $(this).fact.value
+                        }
+                    });
+                    return false;
+                });
+            })
+             
             function join() {
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
-                var buttons = document.getElementById("signupform");
+                var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "block";
                 alert("hey");
             }
@@ -39,10 +55,11 @@
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
+   
+    <!-- signup form section -->
+    <section id="signupformsection" style="margin-top:25%; height:50%; display:none; ">
 
-    <section id="signupform" style="margin-top:25%; height:50%; display:none; ">
-
-        <form method="post" action="http://www.greenseedmusic.com/bthereinsert.php" name="Signup" id="Signup" autocomplete="on">
+        <form  name="Signup" id="Signup" autocomplete="on">
 
             <!-- email -->
             <input type="email" class="text-input" placeholder="email" name="email">
@@ -63,7 +80,7 @@
             <input type="text" class="text-input" placeholder="Fun Fact" name="fact">
 
             <!-- Submit Button -->
-            <input type="submit" class="button--large--cta" id="join" value="Sign In" id="submitForm" />
+            <input type="submit" class="button--large--cta" id="join" value="Sign In" />
         </form>
     </section>
 
