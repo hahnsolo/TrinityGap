@@ -22,9 +22,9 @@
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
 
-
+                alert("test");
                 $.ajax({
-                    url: "http://www.greenseedmusic.com/btheresignin.php",
+                    url: "http://www.greenseedmusic.com/btherelogin.php",
                     data: {
                         email: window.localStorage.getItem("BThereEmail"),
                         password: window.localStorage.getItem("BTherePassword")
@@ -34,6 +34,7 @@
                         alert(data);
                     }
                 });
+
             }
 
             $('#Signup').submit(function () {
@@ -51,7 +52,7 @@
 
                 }).fail(function () {
 
-                    alert("Posting failed.");
+                    //alert("Posting failed.");
 
                 });
                 return false;
@@ -62,7 +63,7 @@
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "block";
-                alert("hey");
+                //alert("hey");
             }
         }
     </script>
