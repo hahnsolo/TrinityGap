@@ -22,14 +22,18 @@
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
 
-                $.post("test.php", {
+
+                $.ajax({
+                    url: "http://www.greenseedmusic.com/btheresignin.php",
+                    data: {
                         email: window.localStorage.getItem("BThereEmail"),
                         password: window.localStorage.getItem("BTherePassword")
-                    })
-                    .done(function (data) {
+                    },
+                    type: "POST",
+                    success: function (data) {
                         alert(data);
-                    });
-
+                    }
+                });
             }
 
             $('#Signup').submit(function () {
