@@ -23,7 +23,7 @@
                 buttons.style.display = "none";
 
                 $.post("test.php", {
-                        email: window.localStorage.getItem("BthereEmail"),
+                        email: window.localStorage.getItem("BThereEmail"),
                         password: window.localStorage.getItem("BTherePassword")
                     })
                     .done(function (data) {
