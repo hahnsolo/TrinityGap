@@ -24,8 +24,7 @@
                 $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
                 
                     window.localStorage.setItem("BThere","true");
-                    window.localStorage.setItem("BThereEmail",this.email.value);
-                    alert(window.localStorage.getItem("BThereEmail");
+                    alert(window.localStorage.getItem("BThere"));
                     
                 }).fail(function () {
 
