@@ -17,9 +17,8 @@
             document.getElementById("reachOut").addEventListener("click", join);
 
             function submitForm(){
-              document.getElementById("Signup").submit();
-             var buttons = document.getElementById("signupform");
-                    buttons.style.display = "none";
+            var form = document.getElementById("signupform");
+            form.style.display = "none";
             }
 
             function join() {
@@ -27,6 +26,7 @@
                     buttons.style.display = "none";
                     var buttons = document.getElementById("signupform");
                     buttons.style.display = "block";
+                    alert("hey");
                 }
             }
     </script>
