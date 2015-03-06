@@ -19,7 +19,17 @@
 
             if (window.localStorage.getItem("BThere") == "true") {
 
-                alert("Sexy Back");
+                var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+
+                $.post("test.php", {
+                        email: window.localStorage.getItem("BthereEmail"),
+                        password: window.localStorage.getItem("BTherePassword")
+                    })
+                    .done(function (data) {
+
+                    });
+
             }
 
             $('#Signup').submit(function () {
