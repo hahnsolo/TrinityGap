@@ -36,21 +36,31 @@
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
 
-    <!-- main signup form -->
-    <section id="signupform" style="margin-top:25%; height:50%; display:none;">
-        <!-- name -->
-        <input type="text" class="text-input" placeholder="Name" value="">
-        <br>
-        <input type="text" class="text-input" placeholder="Name" value="" disabled>
-        <!-- nickname -->
-        <input type="text" class="text-input" placeholder="Nick Name" value="">
-        <br>
-        <input type="text" class="text-input" placeholder="Nick Name" value="" disabled>
+   <section id="signupform" style="margin-top:25%; height:50%; ">
 
-        <!-- Bio -->
-        <textarea class="textarea--transparent" rows="3" placeholder="Biography"maxlength="50"></textarea>
-        
-        <button class="button--large--cta" id="join">Sign Up</button>
+        <form method="post" action="http://www.greenseedmusic.com/bthereinsert.php" name="Signup" id="Signup" autocomplete="on">
+
+            <!-- email -->
+            <input type="email" class="text-input" placeholder="email"  name="email">
+
+            <!-- password -->
+            <input type="text" class="text-input" placeholder="password"  name="password">
+
+            <!-- name -->
+            <input type="text" class="text-input" placeholder="Name"  name="name">
+
+            <!-- nickname -->
+            <input type="text" class="text-input" placeholder="Nick Name"  name="nickname">
+
+            <!-- Bio -->
+            <textarea class="textarea--transparent" rows="3" placeholder="Biography" maxlength="50" name="bio"></textarea>
+
+            <!-- Interesting Fact -->
+            <input type="text" class="text-input" placeholder="Fun Fact"  name="fact">
+            
+            <!-- Submit Button -->
+            <input type="submit" class="button--large--cta" id="join" value="Sign In">Sign Up</input>
+
     </section>
 
 </body>
