@@ -30,6 +30,9 @@
                         password: window.localStorage.getItem("BTherePassword")
                     },
                     type: "POST",
+                    error: function (data) {
+                        alert("error");
+                    },
                     success: function (data) {
                         alert("this works");
                         alert(data);
