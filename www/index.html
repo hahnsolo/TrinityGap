@@ -18,49 +18,39 @@
             document.getElementById("reachOut").addEventListener("click", join);
 
             if (window.localStorage.getItem("BThere") == "true") {
-
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
-
                 var email = window.localStorage.getItem("BThereEmail"),
                     password = window.localStorage.getItem("BTherePassword");
-
                 alert("test");
                 $.ajax({
+                    type: "POST",
                     url: "http://www.greenseedmusic.com/btherelogin.php",
                     data: {
                         email: email,
                         password: password
                     },
-                    type: "POST",
-                    error: function (data) {
-                        alert("error");
-                    },
                     success: function (data) {
                         alert("this works");
                         alert(data);
+                    },
+                    error: function (data) {
+                        alert("error");
+                        alert(data);
                     }
                 });
-
             }
 
             $('#Signup').submit(function () {
-
-
                 $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
-
                     var email = $("#signupEmail").val();
                     var password = $("#signupPassword").val();
                     window.localStorage.setItem("BThere", "true");
                     window.localStorage.setItem("BThereEmail", email);
                     window.localStorage.setItem("BTherePassword", password);
-
                     alert(window.localStorage.getItem("BThereEmail"));
-
                 }).fail(function () {
-
                     //alert("Posting failed.");
-
                 });
                 return false;
             });
@@ -77,41 +67,30 @@
 </head>
 
 <body>
-
     <!-- main button section -->
     <section id="buttons" style="margin-top:25%; height:50%;">
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
-
     <!-- signup form section -->
     <section id="signupformsection" style="margin-top:25%; height:50%; display:none; ">
-
         <form name="Signup" id="Signup" autocomplete="on">
-
             <!-- email -->
             <input type="email" class="text-input" placeholder="email" name="email" id="signupEmail">
-
             <!-- password -->
             <input type="text" class="text-input" placeholder="password" name="password" id="signupPassword">
-
             <!-- name -->
             <input type="text" class="text-input" placeholder="Name" name="name">
-
             <!-- nickname -->
             <input type="text" class="text-input" placeholder="Nick Name" name="nickname">
-
             <!-- Bio -->
             <textarea class="textarea--transparent" rows="3" placeholder="Biography" maxlength="50" name="bio"></textarea>
-
             <!-- Interesting Fact -->
             <input type="text" class="text-input" placeholder="Fun Fact" name="fact">
-
             <!-- Submit Button -->
             <input type="submit" class="button--large--cta" id="join" value="Sign In" />
         </form>
     </section>
-
 </body>
 
 </html>
