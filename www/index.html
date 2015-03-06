@@ -13,31 +13,41 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-            
+
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
-            
-            
-            $(function () {
-                $('#Signup').submit(function () {
-                    alert("hey Hey");
-                    $.ajax({
-                        type: 'POST',
-                        url: 'http://www.greenseedmusic.com/bthereinsert.php',
-                        data: {
-                            name: $(this).name.value,
-                            password: $(this).password.value,
-                            nickname: $(this).nickname.value,
-                            email: $(this).email.value,
-                            bio: $(this).bio.value,
-                            fact: $(this).fact.value
-                        }
-                    });
-                    
+
+            $('#Signup').submit(function () {
+
+
+
+
+                /*
+                 * 'post_receiver.php' - where you will pass the form data
+                 * $(this).serialize() - to easily read form data
+                 * function(data){... - data contains the response from post_receiver.php
+                 */
+                $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
+
+                    // show the response
+                    alert("it worked");
+
+                }).fail(function () {
+
+                    // just in case posting your form failed
+                    alert("Posting failed.");
+
                 });
-            })
-             
+
+                // to prevent refreshing the whole page page
+                return false;
+
+            });
+
+
+
+
             function join() {
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
@@ -56,11 +66,11 @@
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
-   
+
     <!-- signup form section -->
     <section id="signupformsection" style="margin-top:25%; height:50%; display:none; ">
 
-        <form  name="Signup" id="Signup" autocomplete="on">
+        <form name="Signup" id="Signup" autocomplete="on">
 
             <!-- email -->
             <input type="email" class="text-input" placeholder="email" name="email">
