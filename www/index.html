@@ -17,7 +17,8 @@
             document.getElementById("reachOut").addEventListener("click", join);
 
             function submitForm(){
-              document.getElementById("Signup").submit();
+             var x = document.getElementById("Signup").submit();
+                return false;
             }
 
             function join() {
@@ -61,7 +62,7 @@
             <input type="text" class="text-input" placeholder="Fun Fact"  name="fact">
             
             <!-- Submit Button -->
-            <input type="submit" class="button--large--cta" id="join" value="Sign In" onclick="submitForm(); return false;"/>
+            <input type="button" class="button--large--cta" id="join" value="Sign In" onclick="submitForm(); return false;"/>
 
     </section>
 
