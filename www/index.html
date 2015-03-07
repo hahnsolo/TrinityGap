@@ -22,21 +22,20 @@
                 buttons.style.display = "none";
                 var email = window.localStorage.getItem("BThereEmail"),
                     password = window.localStorage.getItem("BTherePassword");
-                alert("test");
+
                 $.ajax({
                     type: "POST",
+                    async: true,
                     url: "http://www.greenseedmusic.com/btherelogin.php",
                     data: {
                         email: email,
                         password: password
                     },
                     success: function (data) {
-                        alert("this works");
-                        alert(data);
+
                     },
                     error: function (data) {
-                        alert("error");
-                        alert(data);
+
                     }
                 });
             }
