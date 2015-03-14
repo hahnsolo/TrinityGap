@@ -13,13 +13,16 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-
+            alert("in device ready");
+            
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
             if (window.localStorage.getItem("BThere") == "true") {
-                
+                alert("has been built once");
                 var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+                var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "none";
                 
                 var email = window.localStorage.getItem("BThereEmail"),
@@ -34,7 +37,7 @@
                         password: password
                     },
                     success: function (data) {
-                        alert(data);
+                        alert("sjds");
                     },
                     error: function (data) {
                         alert("Error");
@@ -43,6 +46,7 @@
             }
 
             $('#Signup').submit(function () {
+                alert("signuptriggerd");
                 $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
                     var email = $("#signupEmail").val();
                     var password = $("#signupPassword").val();
@@ -51,7 +55,7 @@
                     window.localStorage.setItem("BTherePassword", password);
                     alert(window.localStorage.getItem("BThereEmail"));
                 }).fail(function () {
-                    //alert("Posting failed.");
+                    alert("Posting failed.");
                 });
                 return false;
             });
@@ -61,7 +65,7 @@
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "block";
-                //alert("hey");
+                alert("Join Triggered");
             }
         }
     </script>
@@ -69,12 +73,12 @@
 
 <body>
     <!-- main button section -->
-    <section id="buttons" style="margin-top:25%; height:50%; display:none;">
+    <section id="buttons" style="margin-top:25%; height:50%;">
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
     <!-- signup form section -->
-    <section id="signupformsection" style="margin-top:25%; height:50%; ">
+    <section id="signupformsection" style="margin-top:25%; height:50%;display:none;">
         <form name="Signup" id="Signup" autocomplete="on">
             <!-- email -->
             <input type="email" class="text-input" placeholder="email" name="email" id="signupEmail">
