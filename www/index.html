@@ -18,10 +18,12 @@
             document.getElementById("reachOut").addEventListener("click", join);
 
             if (window.localStorage.getItem("BThere") == "true") {
+                
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
+                
                 var email = window.localStorage.getItem("BThereEmail"),
-                    password = window.localStorage.getItem("BTherePassword");
+                var password = window.localStorage.getItem("BTherePassword");
 
                 $.ajax({
                     type: "POST",
