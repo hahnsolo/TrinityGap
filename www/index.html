@@ -20,7 +20,40 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
-                    $('#Signup').submit(function () {
+            if (window.localStorage.getItem("BThere") == "true") {
+                alert("has been built once");
+                var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+                var buttons = document.getElementById("signupformsection");
+                buttons.style.display = "none";
+                
+                var email = window.localStorage.getItem("BThereEmail"),
+                var password = window.localStorage.getItem("BTherePassword");
+
+                $.ajax({
+                    type: "POST",
+                    async: "true",
+                    url: "http://www.greenseedmusic.com/btherelogin.php",
+                    data: {
+                        email: email,
+                        password: password
+                    },
+                    success: function (data) {
+                        alert("sjds");
+                    },
+                    error: function (data) {
+                        alert("Error");
+                    }
+                });
+            }
+            
+            
+            
+            
+            
+            
+            
+            $('#Signup').submit(function () {
                 alert("signuptriggerd");
                 $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
                     var email = $("#signupEmail").val();
