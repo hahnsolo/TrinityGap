@@ -21,14 +21,13 @@
             document.getElementById("reachOut").addEventListener("click", join);
 
             if (window.localStorage.getItem("BThere") == "true") {
-                bluetoothSerial.isEnabled(
-    function() {
-     alert("Bluetooth is enabled");
-    },
-    function() {
-        alert("Bluetooth is *not* enabled");
-    }
-);
+                
+                bluetoothSerial.discoverUnpaired(function(devices) {
+    devices.forEach(function(device) {
+        alert(device.id);
+    })
+}, failure);
+                
                 alert("has been built once");
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
