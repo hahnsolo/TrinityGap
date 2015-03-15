@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-        
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-            
+
             alert("in device ready");
-            
+
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
@@ -26,7 +25,7 @@
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "none";
-                
+
                 var email = window.localStorage.getItem("BThereEmail");
                 var password = window.localStorage.getItem("BTherePassword");
 
@@ -39,20 +38,24 @@
                         password: password
                     },
                     success: function (data) {
-                        alert("sjds");
+                        bluetoothSerial.list(function (devices) {
+                            devices.forEach(function (device) {
+                                alert(device.id);
+                            })
+                        }, failure);
                     },
                     error: function (data) {
                         alert("Error");
                     }
                 });
             }
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
             $('#Signup').submit(function () {
                 alert("signuptriggerd");
                 $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
@@ -67,7 +70,7 @@
                 });
                 return false;
             });
-        
+
             function join() {
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
@@ -85,7 +88,7 @@
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
-    
+
     <!-- signup form section -->
     <section id="signupformsection" style="margin-top:25%; height:50%;display:none;">
         <form name="Signup" id="Signup" autocomplete="on">
@@ -105,9 +108,9 @@
             <input type="submit" class="button--large--cta" id="join" value="Sign In" />
         </form>
     </section>
-    
-    
-    
+
+
+
 </body>
 
 </html>
