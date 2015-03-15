@@ -20,6 +20,20 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
+                    $('#Signup').submit(function () {
+                alert("signuptriggerd");
+                $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
+                    var email = $("#signupEmail").val();
+                    var password = $("#signupPassword").val();
+                    window.localStorage.setItem("BThere", "true");
+                    window.localStorage.setItem("BThereEmail", email);
+                    window.localStorage.setItem("BTherePassword", password);
+                    alert(window.localStorage.getItem("BThereEmail"));
+                }).fail(function () {
+                    alert("Posting failed.");
+                });
+                return false;
+            });
         
             function join() {
                 var buttons = document.getElementById("buttons");
