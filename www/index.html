@@ -50,7 +50,7 @@
                 });
             }
 
-var onSuccess = function(position) {
+  function onSuccess(position) {
     alert('Latitude: '          + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n' +
           'Altitude: '          + position.coords.altitude          + '\n' +
@@ -60,6 +60,8 @@ var onSuccess = function(position) {
           'Speed: '             + position.coords.speed             + '\n' +
           'Timestamp: '         + position.timestamp                + '\n');
 };
+            
+function onError(){};
 
             $('#Signup').submit(function () {
                 alert("signuptriggerd");
