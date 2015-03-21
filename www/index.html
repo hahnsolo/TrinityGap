@@ -21,33 +21,49 @@
 
             if (window.localStorage.getItem("BThere") == "true") {
 
+                var tempAddress = "0";
+                var tempCount = 0;
+                var array = [];
+                array.push("Hello");
 
                 bluetoothle.initialize(initializeSuccess, initializeError, {
                     "request": true,
                     "statusReceiver": false
                 });
 
-                function initializeSuccess() { 
+                function initializeSuccess() {
                     console.log("bam");
                 }
+
                 function initializeError() {
                     console.log("bam");
                 }
 
                 bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
-                    
+
                 });
 
                 function startScanSuccess(obj) {
-                   alert(obj.address);
+
+                    for (i = 0; i < array.length; i++) {
+                        if (obj.address != array[i]) {
+                            array.push(obj.name);
+                        } else {
+                            tempCount = tempCount + 1;
+                        }
+                    }
+
+                    if (tempCount > 3) {
+                        bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                    }
                 }
 
                 function startScanError() {
                     alert("not hello");
                 }
 
-          
+
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
@@ -72,8 +88,16 @@
                     }
                 });
             }
+            
+            function stopScanError() {
 
+                alert("Stopped failure");
+            }
 
+            function stopScanSuccess() {
+
+                alert("Stopped");
+            }
 
             $('#Signup').submit(function () {
                 alert("signuptriggerd");
@@ -85,7 +109,7 @@
                     window.localStorage.setItem("BTherePassword", password);
                     alert(window.localStorage.getItem("BThereEmail"));
                 }).fail(function () {
-                   
+
                 });
                 return false;
             });
@@ -95,7 +119,7 @@
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "block";
-        
+
             }
         }
     </script>
