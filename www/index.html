@@ -27,9 +27,11 @@
                     "statusReceiver": false
                 });
 
-                function initializeSuccess() {  
+                function initializeSuccess() { 
+                    console.log("bam");
                 }
                 function initializeError() {
+                    console.log("bam");
                 }
 
                 bluetoothle.startScan(startScanSuccess, startScanError, {
