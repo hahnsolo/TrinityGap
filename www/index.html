@@ -29,7 +29,7 @@
 
                 function initializeSuccess() {
                     
-                    var list = [];
+                  
                     
                     bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
@@ -44,8 +44,7 @@
                 
 
                 function startScanSuccess(obj) {
-                    list.push(obj.name);
-                    alert(list.length);
+                    alert(obj.name);
                 }
 
                 function startScanError() {
