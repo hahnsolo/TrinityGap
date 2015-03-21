@@ -40,8 +40,13 @@
                 }
 
                 function startScanSuccess(obj) {
+                    
+                    if(list.indexOf(obj.name) == -1)
+                    {
                     list.push(obj.name);
+                    }
                     alert(list.length);
+                    
                 }
 
                 function startScanError() {
