@@ -28,26 +28,27 @@
                 });
 
                 function initializeSuccess() {
-                    alert("sexy");
+                   
                 }
 
                 function initializeError() {
-                    alert("unexy");
+               
                 }
 
                 bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
                 });
 
-                function startScanSuccess() {
-                    alert("hell0");
+                function startScanSuccess(data) {
+                    alert(data.advertisement);
+                    alert("made a call scanning is pricy");
                 }
 
                 function startScanError() {
                     alert("not hello");
                 }
 
-                alert("has been built once");
+          
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
@@ -85,7 +86,7 @@
                     window.localStorage.setItem("BTherePassword", password);
                     alert(window.localStorage.getItem("BThereEmail"));
                 }).fail(function () {
-                    alert("Posting failed.");
+                   
                 });
                 return false;
             });
@@ -95,7 +96,7 @@
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
                 buttons.style.display = "block";
-                alert("Join Triggered");
+        
             }
         }
     </script>
