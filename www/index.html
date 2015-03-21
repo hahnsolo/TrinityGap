@@ -45,11 +45,13 @@
                 });
 
                 function startScanSuccess(obj) {
-
+                    alert("in in me");
                     for (i = 0; i < array.length; i++) {
+                        
                         if (obj.address != array[i]) {
                             array.push(obj.name);
-                        } else {
+                        } 
+                        else {
                             tempCount = tempCount + 1;
                         }
                     }
