@@ -21,18 +21,16 @@
 
             if (window.localStorage.getItem("BThere") == "true") {
 
-                bluetoothle.initialize(initializeSuccess, initializeError, {
-                    "request": true,
-                    "statusReceiver": false
-                });
                 
-                function initalizeSuccess(){
-                    alert("in me");
+              bluetoothle.initialize(initializeSuccess, initializeError);
+                
+                function initializeSucces()
+                {
+                    alert("sexy");
                 }
-
                 
-                function initalizeError(){
-                    alert("in me");
+                function initializeError(){
+                    alert("unexy");
                 }
 
                 alert("has been built once");
