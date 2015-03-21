@@ -27,21 +27,17 @@
                     "statusReceiver": false
                 });
 
-                function initializeSuccess() {
-                   
+                function initializeSuccess() {  
                 }
-
                 function initializeError() {
-               
                 }
 
                 bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
                 });
 
-                function startScanSuccess() {
-                    alert(this.advertisement);
-                    alert("made a call scanning is pricy");
+                function startScanSuccess(obj) {
+                   alert("Start Scan Success : " + JSON.stringify(obj)
                 }
 
                 function startScanError() {
