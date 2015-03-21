@@ -21,12 +21,7 @@
 
             if (window.localStorage.getItem("BThere") == "true") {
 
-                var tempAddress = "0";
-                var tempCount = 0;
-                var array = [];
-                array.push("Hello");
-                array.push("baby");
-
+            
                 bluetoothle.initialize(initializeSuccess, initializeError, {
                     "request": true,
                     "statusReceiver": false
