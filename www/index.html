@@ -21,7 +21,13 @@
 
                 if (window.localStorage.getItem("BThere") == "true") {
 
-
+                bluetoothle.initialize(initializeSuccess, initializeError, request=true);
+                    function initalizeSuccess (){
+                     alert("inital Success");   
+                    }
+                    function initalizeError (){
+                     alert("inital Error");   
+                    }
                 bluetoothle.enable(enableSuccess, enableError);
                     
                     function enableSuccess(){
