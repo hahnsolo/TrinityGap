@@ -55,7 +55,9 @@
                         
                         function stopScanSuccess()
                         {
-                          alert("Stopped");   
+                          alert("Stopped");  
+                          alert(list.length);
+                              
                         }
                         
                          function stopScanError()
@@ -88,11 +90,10 @@
                         password: password
                     },
                     success: function (data) {
-                        alert("sjds");
+                        
                     },
                     error: function (data) {
-                        alert("Error");
-                    }
+                                            }
                 });
             }
 
