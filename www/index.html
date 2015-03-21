@@ -28,17 +28,17 @@
                 });
 
                 function initializeSuccess() {
-                    console.log("bam");
+                    bluetoothle.startScan(startScanSuccess, startScanError, {
+                    "serviceUuids": []
+
+                });  
                 }
 
                 function initializeError() {
                     console.log("bam");
                 }
 
-                bluetoothle.startScan(startScanSuccess, startScanError, {
-                    "serviceUuids": []
-
-                });
+                
 
                 function startScanSuccess(obj) {
                     alert(obj.name);
