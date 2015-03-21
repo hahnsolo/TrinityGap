@@ -36,10 +36,11 @@
 
                 bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
+                    
                 });
 
                 function startScanSuccess(obj) {
-                   alert("Start Scan Success : " + JSON.stringify(obj));
+                   alert(obj.name);
                 }
 
                 function startScanError() {
