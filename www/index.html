@@ -14,15 +14,15 @@
 
         function onDeviceReady() {
 
-           var temp="";
-           var list = [];
+            var temp = 0;
+            var list = [];
 
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
             if (window.localStorage.getItem("BThere") == "true") {
 
-            
+
                 bluetoothle.initialize(initializeSuccess, initializeError, {
                     "request": true,
                     "statusReceiver": false
@@ -30,9 +30,9 @@
 
                 function initializeSuccess() {
                     bluetoothle.startScan(startScanSuccess, startScanError, {
-                    "serviceUuids": []
-                });
-                    
+                        "serviceUuids": []
+                    });
+
                 }
 
                 function initializeError() {
@@ -40,13 +40,17 @@
                 }
 
                 function startScanSuccess(obj) {
-                    
-                    if(list.indexOf(obj.name) == -1)
-                    {
-                    list.push(obj.name);
+
+                    if (list.indexOf(obj.name) == -1) {
+                        list.push(obj.name);
                     }
-                    alert(list.length);
+                    else 
+                    {
+                        temp++;
+                    }
                     
+                    alert(temp);
+
                 }
 
                 function startScanError() {
@@ -78,8 +82,8 @@
                     }
                 });
             }
-            
-           
+
+
 
             $('#Signup').submit(function () {
                 alert("signuptriggerd");
