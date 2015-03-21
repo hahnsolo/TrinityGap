@@ -14,80 +14,78 @@
 
         function onDeviceReady() {
 
-                alert("in device ready");
+            alert("in device ready");
 
-                document.getElementById("join").addEventListener("click", join);
-                document.getElementById("reachOut").addEventListener("click", join);
+            document.getElementById("join").addEventListener("click", join);
+            document.getElementById("reachOut").addEventListener("click", join);
 
-                if (window.localStorage.getItem("BThere") == "true") {
+            if (window.localStorage.getItem("BThere") == "true") {
 
-                bluetoothle.initialize(initializeSuccess, initializeError, request=true);
-                    function initalizeSuccess (){
-                     alert("inital Success");   
-                    }
-                    function initalizeError (){
-                     alert("inital Error");   
-                    }
-                bluetoothle.enable(enableSuccess, enableError);
-                    
-                    function enableSuccess(){
-                        alert("Success");
-                    }
-                    function enableError(){
-                        alert("broken");
-                    }
-
-                    alert("has been built once");
-                    var buttons = document.getElementById("buttons");
-                    buttons.style.display = "none";
-                    var buttons = document.getElementById("signupformsection");
-                    buttons.style.display = "none";
-
-                    var email = window.localStorage.getItem("BThereEmail");
-                    var password = window.localStorage.getItem("BTherePassword");
-
-                    $.ajax({
-                        type: "POST",
-                        async: "true",
-                        url: "http://www.greenseedmusic.com/btherelogin.php",
-                        data: {
-                            email: email,
-                            password: password
-                        },
-                        success: function (data) {
-                            alert("sjds");
-                        },
-                        error: function (data) {
-                            alert("Error");
-                        }
-                    });
+                bluetoothle.initialize(initializeSuccess, initializeError, {
+                    "request": true,
+                    "statusReceiver": false
+                });
+                
+                function initalizeSuccess(){
+                    alert("in me");
                 }
 
-             
-
-                    $('#Signup').submit(function () {
-                        alert("signuptriggerd");
-                        $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
-                            var email = $("#signupEmail").val();
-                            var password = $("#signupPassword").val();
-                            window.localStorage.setItem("BThere", "true");
-                            window.localStorage.setItem("BThereEmail", email);
-                            window.localStorage.setItem("BTherePassword", password);
-                            alert(window.localStorage.getItem("BThereEmail"));
-                        }).fail(function () {
-                            alert("Posting failed.");
-                        });
-                        return false;
-                    });
-
-                    function join() {
-                        var buttons = document.getElementById("buttons");
-                        buttons.style.display = "none";
-                        var buttons = document.getElementById("signupformsection");
-                        buttons.style.display = "block";
-                        alert("Join Triggered");
-                    }
+                
+                function initalizeError(){
+                    alert("in me");
                 }
+
+                alert("has been built once");
+                var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+                var buttons = document.getElementById("signupformsection");
+                buttons.style.display = "none";
+
+                var email = window.localStorage.getItem("BThereEmail");
+                var password = window.localStorage.getItem("BTherePassword");
+
+                $.ajax({
+                    type: "POST",
+                    async: "true",
+                    url: "http://www.greenseedmusic.com/btherelogin.php",
+                    data: {
+                        email: email,
+                        password: password
+                    },
+                    success: function (data) {
+                        alert("sjds");
+                    },
+                    error: function (data) {
+                        alert("Error");
+                    }
+                });
+            }
+
+
+
+            $('#Signup').submit(function () {
+                alert("signuptriggerd");
+                $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
+                    var email = $("#signupEmail").val();
+                    var password = $("#signupPassword").val();
+                    window.localStorage.setItem("BThere", "true");
+                    window.localStorage.setItem("BThereEmail", email);
+                    window.localStorage.setItem("BTherePassword", password);
+                    alert(window.localStorage.getItem("BThereEmail"));
+                }).fail(function () {
+                    alert("Posting failed.");
+                });
+                return false;
+            });
+
+            function join() {
+                var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+                var buttons = document.getElementById("signupformsection");
+                buttons.style.display = "block";
+                alert("Join Triggered");
+            }
+        }
     </script>
 </head>
 
