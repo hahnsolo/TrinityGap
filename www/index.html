@@ -22,9 +22,14 @@
                 if (window.localStorage.getItem("BThere") == "true") {
 
 
-                    pushNotification = window.plugins.pushNotification;
-
-
+                bluetoothle.enable(enableSuccess, enableError);
+                    
+                    function enableSuccess(){
+                        alert("Success");
+                    }
+                    function enableError(){
+                        alert("broken");
+                    }
 
                     alert("has been built once");
                     var buttons = document.getElementById("buttons");
