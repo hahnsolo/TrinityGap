@@ -25,6 +25,7 @@
                 var tempCount = 0;
                 var array = [];
                 array.push("Hello");
+                array.push("baby");
 
                 bluetoothle.initialize(initializeSuccess, initializeError, {
                     "request": true,
@@ -45,20 +46,11 @@
                 });
 
                 function startScanSuccess(obj) {
-                    alert("in in me");
                     for (i = 0; i < array.length; i++) {
-                        
-                        if (obj.address != array[i]) {
-                            array.push(obj.name);
-                        } 
-                        else {
-                            tempCount = tempCount + 1;
-                        }
+                        alert(i);
                     }
 
-                    if (tempCount > 3) {
-                        bluetoothle.stopScan(stopScanSuccess, stopScanError);
-                    }
+                  
                 }
 
                 function startScanError() {
@@ -91,15 +83,7 @@
                 });
             }
             
-            function stopScanError() {
-
-                alert("Stopped failure");
-            }
-
-            function stopScanSuccess() {
-
-                alert("Stopped");
-            }
+           
 
             $('#Signup').submit(function () {
                 alert("signuptriggerd");
