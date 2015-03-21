@@ -14,7 +14,7 @@
 
         function onDeviceReady() {
 
-            alert("in device ready");
+           var temp="";
 
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
@@ -28,9 +28,6 @@
                 });
 
                 function initializeSuccess() {
-                    
-                  
-                    
                     bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
                 });
@@ -44,7 +41,8 @@
                 
 
                 function startScanSuccess(obj) {
-                    alert(obj.name);
+                    temp=obj.name;
+                    alert(temp);
                 }
 
                 function startScanError() {
