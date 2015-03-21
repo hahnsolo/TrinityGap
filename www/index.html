@@ -49,7 +49,20 @@
                         temp++;
                     }
                     
-                    alert(temp);
+                    if(temp > 10)
+                    {
+                        bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                        
+                        function stopScanSuccess()
+                        {
+                          alert("Stopped");   
+                        }
+                        
+                         function stopScanError()
+                        {
+                          alert("Never Dieing");   
+                        }
+                    }
 
                 }
 
