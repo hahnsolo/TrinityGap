@@ -20,6 +20,9 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
+            var myVar = setTimeout(function(){myTimer()},1000);
+            alert(list.length);
+            
             function poopy (){
             
                 bluetoothle.initialize(initializeSuccess, initializeError, {
