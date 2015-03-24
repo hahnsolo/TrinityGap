@@ -20,13 +20,12 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
-            if (window.localStorage.getItem("BThere") == "true") {
-
+            
                 bluetoothle.initialize(initializeSuccess, initializeError, {
-
+            
                     "request": true,
                     "statusReceiver": false
-
+                
                 });
 
                 function initializeSuccess() {
@@ -41,24 +40,31 @@
                 }
 
                 function startScanSuccess(obj) {
-                    alert(temp);
 
+                    
+                    
                     if (list.indexOf(obj.name) == -1) {
                         list.push(obj.name);
-                    } else
+                    }
+                    else 
+                    {
                         temp++;
-
-                    if (temp > 10) {
+                    }
+                    
+                    if(temp > 10)
+                    {
                         bluetoothle.stopScan(stopScanSuccess, stopScanError);
-
-                        function stopScanSuccess() {
-                            alert("Stopped");
-                            alert(list.length);
-
+                        
+                        function stopScanSuccess()
+                        {
+                          alert("Stopped");  
+                          alert(list.length);
+                              
                         }
-
-                        function stopScanError() {
-                            alert("Never Dieing");
+                        
+                         function stopScanError()
+                        {
+                          alert("Never Dieing");   
                         }
                     }
 
@@ -67,7 +73,9 @@
                 function startScanError() {
                     alert("not hello");
                 }
-
+            
+            
+            if (window.localStorage.getItem("BThere") == "true") {
 
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
@@ -86,9 +94,10 @@
                         password: password
                     },
                     success: function (data) {
-
+                        
                     },
-                    error: function (data) {}
+                    error: function (data) {
+                                            }
                 });
             }
 
