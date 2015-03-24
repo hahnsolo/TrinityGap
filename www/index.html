@@ -23,10 +23,10 @@
             if (window.localStorage.getItem("BThere") == "true") {
 
                 bluetoothle.initialize(initializeSuccess, initializeError, {
-            
+
                     "request": true,
                     "statusReceiver": false
-                
+
                 });
 
                 function initializeSuccess() {
@@ -41,32 +41,25 @@
                 }
 
                 function startScanSuccess(obj) {
+                    alert("in start scan success");
                     
                     if (list.indexOf(obj.name) == -1) {
-                         list.push(obj.name);
-                    }
-                    else 
-                    {
+                        list.push(obj.name);
+                    } else {
                         temp++;
-               
                     }
-                    
-                    alert(list.length);
-                    
-                    if(temp > 10)
-                    {
+
+                    if (temp > 10) {
                         bluetoothle.stopScan(stopScanSuccess, stopScanError);
-                        
-                        function stopScanSuccess()
-                        {
-                          alert("Stopped");  
-                           alert(list.length);
-                              
+
+                        function stopScanSuccess() {
+                            alert("Stopped");
+                            alert(list.length);
+
                         }
-                        
-                         function stopScanError()
-                        {
-                          alert("Never Dieing");   
+
+                        function stopScanError() {
+                            alert("Never Dieing");
                         }
                     }
 
@@ -94,10 +87,9 @@
                         password: password
                     },
                     success: function (data) {
-                        
+
                     },
-                    error: function (data) {
-                                            }
+                    error: function (data) {}
                 });
             }
 
