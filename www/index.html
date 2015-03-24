@@ -41,20 +41,12 @@
                 }
 
                 function startScanSuccess(obj) {
-                    if (obj.status == "scanResult")
-                    {
-                        if (list.indexOf(obj.name) == -1) 
-                        {
+                    alert(temp);
+
+                    if (list.indexOf(obj.name) == -1) {
                         list.push(obj.name);
-                        }else
-                            temp++;
-                    }
-                    else if (obj.status == "scanStarted") 
-                    {
-                        alert("Scan Started");
-                    }
-                    
-                    
+                    } else
+                        temp++;
 
                     if (temp > 10) {
                         bluetoothle.stopScan(stopScanSuccess, stopScanError);
