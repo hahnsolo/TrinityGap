@@ -22,32 +22,35 @@
 
             if (window.localStorage.getItem("BThere") == "true") {
 
-
                 bluetoothle.initialize(initializeSuccess, initializeError, {
+            
                     "request": true,
                     "statusReceiver": false
+                
                 });
 
                 function initializeSuccess() {
                     bluetoothle.startScan(startScanSuccess, startScanError, {
                         "serviceUuids": []
                     });
-
-                }
+                    alert("in me ");
+ace                }
 
                 function initializeError() {
                     console.log("bam");
                 }
 
                 function startScanSuccess(obj) {
-
+                    
                     if (list.indexOf(obj.name) == -1) {
-                        list.push(obj.name);
+                         list.push(obj.name);
                     }
                     else 
                     {
                         temp++;
                     }
+                    
+                    alert(obj.name);
                     
                     if(temp > 10)
                     {
@@ -56,7 +59,7 @@
                         function stopScanSuccess()
                         {
                           alert("Stopped");  
-                          alert(list.length);
+                           alert(list.length);
                               
                         }
                         
