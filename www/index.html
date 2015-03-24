@@ -43,9 +43,10 @@
                 function startScanSuccess(obj) {
                     if (obj.status == "scanResult")
                     {
-                        if list.indexOf(obj.name) == -1) 
+                        if (list.indexOf(obj.name) == -1) 
+                        {
                         list.push(obj.name);
-                        else
+                        }else
                             temp++;
                     }
                     else if (obj.status == "scanStarted") 
