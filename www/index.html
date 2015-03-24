@@ -20,6 +20,7 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
+            function poopy (){
             
                 bluetoothle.initialize(initializeSuccess, initializeError, {
             
@@ -27,7 +28,7 @@
                     "statusReceiver": false
                 
                 });
-
+            }
                 function initializeSuccess() {
                     bluetoothle.startScan(startScanSuccess, startScanError, {
                         "serviceUuids": []
