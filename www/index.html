@@ -20,115 +20,114 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
-            var myVar = setTimeout(function(){poopy()},1000);
-            alert(list.length);
-            
-            function poopy (){
-            
-                bluetoothle.initialize(initializeSuccess, initializeError, {
-            
-                    "request": true,
-                    "statusReceiver": false
-                
-                });
-            }
-                function initializeSuccess() {
-                    bluetoothle.startScan(startScanSuccess, startScanError, {
-                        "serviceUuids": []
-                    });
-                    alert("in me ");
-                }
+            bluetoothle.initialize(initializeSuccess, initializeError, {
 
-                function initializeError() {
-                    console.log("bam");
-                }
+                "request": true,
+                "statusReceiver": false
 
-                function startScanSuccess(obj) {
-
-                    
-                    
-                    if (list.indexOf(obj.name) == -1) {
-                        list.push(obj.name);
-                    }
-                    else 
-                    {
-                        temp++;
-                    }
-                    
-                    if(temp > 10)
-                    {
-                        bluetoothle.stopScan(stopScanSuccess, stopScanError);
-                        
-                        function stopScanSuccess()
-                        {
-                          alert("Stopped");  
-                          alert(list.length);
-                              
-                        }
-                        
-                         function stopScanError()
-                        {
-                          alert("Never Dieing");   
-                        }
-                    }
-
-                }
-
-                function startScanError() {
-                    alert("not hello");
-                }
-            
-            
-            if (window.localStorage.getItem("BThere") == "true") {
-
-                var buttons = document.getElementById("buttons");
-                buttons.style.display = "none";
-                var buttons = document.getElementById("signupformsection");
-                buttons.style.display = "none";
-
-                var email = window.localStorage.getItem("BThereEmail");
-                var password = window.localStorage.getItem("BTherePassword");
-
-                $.ajax({
-                    type: "POST",
-                    async: "true",
-                    url: "http://www.greenseedmusic.com/btherelogin.php",
-                    data: {
-                        email: email,
-                        password: password
-                    },
-                    success: function (data) {
-                        
-                    },
-                    error: function (data) {
-                                            }
-                });
-            }
-
-
-
-            $('#Signup').submit(function () {
-                alert("signuptriggerd");
-                $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
-                    var email = $("#signupEmail").val();
-                    var password = $("#signupPassword").val();
-                    window.localStorage.setItem("BThere", "true");
-                    window.localStorage.setItem("BThereEmail", email);
-                    window.localStorage.setItem("BTherePassword", password);
-                    alert(window.localStorage.getItem("BThereEmail"));
-                }).fail(function () {
-
-                });
-                return false;
             });
 
-            function join() {
-                var buttons = document.getElementById("buttons");
-                buttons.style.display = "none";
-                var buttons = document.getElementById("signupformsection");
-                buttons.style.display = "block";
+            function initializeSuccess() {
 
+                alert("in me ");
             }
+
+            function initializeError() {
+                console.log("bam");
+            }
+
+            function poppy() {
+                bluetoothle.startScan(startScanSuccess, startScanError, {
+                    "serviceUuids": []
+                });
+            }
+
+            function startScanSuccess(obj) {
+
+                if (list.indexOf(obj.name) == -1) {
+                    list.push(obj.name);
+                } else {
+                    bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                }
+            }
+
+            function startScanError() {
+                alert("not hello");
+            }
+            
+            
+                function stopScanSuccess() {
+                    alert("Stopped");
+                    alert(list.length);
+                }
+
+                function stopScanError() {
+                    alert("Never Dieing");
+                }
+
+
+            if (window.localStorage.getItem("BThere") == "true") {
+
+                var myVar = setInterval(function () {
+                    poppy()
+                }, 1000);
+
+
+
+
+
+
+        
+
+
+
+        var buttons = document.getElementById("buttons");
+        buttons.style.display = "none";
+        var buttons = document.getElementById("signupformsection");
+        buttons.style.display = "none";
+
+        var email = window.localStorage.getItem("BThereEmail");
+        var password = window.localStorage.getItem("BTherePassword");
+
+        $.ajax({
+            type: "POST",
+            async: "true",
+            url: "http://www.greenseedmusic.com/btherelogin.php",
+            data: {
+                email: email,
+                password: password
+            },
+            success: function (data) {
+
+            },
+            error: function (data) {}
+        });
+        }
+
+
+
+        $('#Signup').submit(function () {
+            alert("signuptriggerd");
+            $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
+                var email = $("#signupEmail").val();
+                var password = $("#signupPassword").val();
+                window.localStorage.setItem("BThere", "true");
+                window.localStorage.setItem("BThereEmail", email);
+                window.localStorage.setItem("BTherePassword", password);
+                alert(window.localStorage.getItem("BThereEmail"));
+            }).fail(function () {
+
+            });
+            return false;
+        });
+
+        function join() {
+            var buttons = document.getElementById("buttons");
+            buttons.style.display = "none";
+            var buttons = document.getElementById("signupformsection");
+            buttons.style.display = "block";
+
+        }
         }
     </script>
 </head>
