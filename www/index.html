@@ -20,65 +20,61 @@
             document.getElementById("join").addEventListener("click", join);
             document.getElementById("reachOut").addEventListener("click", join);
 
-            bluetoothle.initialize(initializeSuccess, initializeError, {
-
-                "request": true,
-                "statusReceiver": false
-
-            });
-
-            function initializeSuccess() {
-
-                alert("in me ");
-            }
-
-            function initializeError() {
-                console.log("bam");
-            }
-
-            function poppy() {
-                bluetoothle.startScan(startScanSuccess, startScanError, {
-                    "serviceUuids": []
-                });
-                bluetoothle.stopScan(stopScanSuccess, stopScanError);
-            }
-
-            function startScanSuccess(obj) {
-
-                if (list.indexOf(obj.name) == -1) {
-                    list.push(obj.name);
-                } else {
-                
-
-                }
-            }
-
-            function startScanError() {
-                
-            }
-
-            function stopScanSuccess() {
-               
-
-            }
-
-            function stopScanError() {
-            
-            }
-
-
             if (window.localStorage.getItem("BThere") == "true") {
 
-                for (x = 0; x < 10; x++) {
-                    var myVar = setTimeout(function () {
-                        poppy()
-                    }, 1000);
-                    alert("in the loop");
+                bluetoothle.initialize(initializeSuccess, initializeError, {
+            
+                    "request": true,
+                    "statusReceiver": false
+                
+                });
+
+                function initializeSuccess() {
+                    bluetoothle.startScan(startScanSuccess, startScanError, {
+                        "serviceUuids": []
+                    });
+                    alert("in me ");
                 }
 
-                alert("hello");
-                alert(list.length);
-                
+                function initializeError() {
+                    console.log("bam");
+                }
+
+                function startScanSuccess(obj) {
+
+                    
+                    if (list.indexOf(obj.name) == -1) {
+                        list.push(obj.name);
+                    }
+                    else 
+                    {
+                        temp++;
+                    }
+                    
+                    if(temp > 10)
+                    {
+                        bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                        
+                        function stopScanSuccess()
+                        {
+                          alert("Stopped");  
+                          alert(list.length);
+                              
+                        }
+                        
+                         function stopScanError()
+                        {
+                          alert("Never Dieing");   
+                        }
+                    }
+
+                }
+
+                function startScanError() {
+                    alert("not hello");
+                }
+
+
                 var buttons = document.getElementById("buttons");
                 buttons.style.display = "none";
                 var buttons = document.getElementById("signupformsection");
@@ -96,9 +92,10 @@
                         password: password
                     },
                     success: function (data) {
-
+                        
                     },
-                    error: function (data) {}
+                    error: function (data) {
+                                            }
                 });
             }
 
