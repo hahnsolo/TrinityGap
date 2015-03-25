@@ -48,7 +48,7 @@
                 if (list.indexOf(obj.name) == -1) {
                     list.push(obj.name);
                 } else {
-                 
+                
 
                 }
             }
@@ -73,8 +73,10 @@
                     var myVar = setTimeout(function () {
                         poppy()
                     }, 1000);
+                    alert("in the loop");
                 }
 
+                alert("hello");
                 alert(list.length);
                 
                 var buttons = document.getElementById("buttons");
