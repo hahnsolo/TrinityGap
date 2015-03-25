@@ -43,10 +43,11 @@
             }
 
             function startScanSuccess(obj) {
-                alert("in start scan");
+                
                 if (list.indexOf(obj.name) == -1) {
                     list.push(obj.name);
                 } else {
+                    alert("in start scan");
                     bluetoothle.stopScan(stopScanSuccess, stopScanError);
                 }
             }
@@ -54,8 +55,6 @@
             function startScanError() {
                 alert("not hello");
             }
-            
-            
                 function stopScanSuccess() {
                     alert("Stopped");
                     alert(list.length);
