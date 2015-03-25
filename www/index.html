@@ -40,95 +40,90 @@
                 bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
                 });
-                  bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                bluetoothle.stopScan(stopScanSuccess, stopScanError);
             }
 
             function startScanSuccess(obj) {
-                
+
                 if (list.indexOf(obj.name) == -1) {
                     list.push(obj.name);
                 } else {
-                    alert("in start scan");
-                  
+                 
+
                 }
             }
 
             function startScanError() {
-                alert("not hello");
+                
             }
-                function stopScanSuccess() {
-                    alert("Stopped");
-                    alert(list.length);
-                    alert(list[0].name);
-                }
 
-                function stopScanError() {
-                    alert("Never Dieing");
-                }
+            function stopScanSuccess() {
+               
+
+            }
+
+            function stopScanError() {
+            
+            }
 
 
             if (window.localStorage.getItem("BThere") == "true") {
 
-                var myVar = setTimeout(function () {
-                    poppy()
-                }, 1000);
+                for (x = 0; x < 10; x++) {
+                    var myVar = setTimeout(function () {
+                        poppy()
+                    }, 1000);
+                }
+
+                alert(list.length);
+                
+                var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+                var buttons = document.getElementById("signupformsection");
+                buttons.style.display = "none";
+
+                var email = window.localStorage.getItem("BThereEmail");
+                var password = window.localStorage.getItem("BTherePassword");
+
+                $.ajax({
+                    type: "POST",
+                    async: "true",
+                    url: "http://www.greenseedmusic.com/btherelogin.php",
+                    data: {
+                        email: email,
+                        password: password
+                    },
+                    success: function (data) {
+
+                    },
+                    error: function (data) {}
+                });
+            }
 
 
 
+            $('#Signup').submit(function () {
+                alert("signuptriggerd");
+                $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
+                    var email = $("#signupEmail").val();
+                    var password = $("#signupPassword").val();
+                    window.localStorage.setItem("BThere", "true");
+                    window.localStorage.setItem("BThereEmail", email);
+                    window.localStorage.setItem("BTherePassword", password);
+                    alert(window.localStorage.getItem("BThereEmail"));
+                }).fail(function () {
 
-
-
-        
-
-
-
-        var buttons = document.getElementById("buttons");
-        buttons.style.display = "none";
-        var buttons = document.getElementById("signupformsection");
-        buttons.style.display = "none";
-
-        var email = window.localStorage.getItem("BThereEmail");
-        var password = window.localStorage.getItem("BTherePassword");
-
-        $.ajax({
-            type: "POST",
-            async: "true",
-            url: "http://www.greenseedmusic.com/btherelogin.php",
-            data: {
-                email: email,
-                password: password
-            },
-            success: function (data) {
-
-            },
-            error: function (data) {}
-        });
-        }
-
-
-
-        $('#Signup').submit(function () {
-            alert("signuptriggerd");
-            $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
-                var email = $("#signupEmail").val();
-                var password = $("#signupPassword").val();
-                window.localStorage.setItem("BThere", "true");
-                window.localStorage.setItem("BThereEmail", email);
-                window.localStorage.setItem("BTherePassword", password);
-                alert(window.localStorage.getItem("BThereEmail"));
-            }).fail(function () {
-
+                });
+                return false;
             });
-            return false;
-        });
 
-        function join() {
-            var buttons = document.getElementById("buttons");
-            buttons.style.display = "none";
-            var buttons = document.getElementById("signupformsection");
-            buttons.style.display = "block";
+            function join() {
+                var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+                var buttons = document.getElementById("signupformsection");
+                buttons.style.display = "block";
 
-        }
+            }
         }
     </script>
 </head>
