@@ -40,6 +40,7 @@
                 bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
                 });
+                  bluetoothle.stopScan(stopScanSuccess, stopScanError);
             }
 
             function startScanSuccess(obj) {
@@ -48,7 +49,7 @@
                     list.push(obj.name);
                 } else {
                     alert("in start scan");
-                    bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                  
                 }
             }
 
