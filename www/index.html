@@ -14,7 +14,7 @@
 
         function onDeviceReady() {
 			bluetoothle.initialize(initializeSuccess, initializeError, {
-                "request": true,
+                "request": false,
                 "statusReceiver": false
             });
 
@@ -47,6 +47,7 @@
                         password: password
                     },
                     success: function (data) {
+						alert(data);
 						var buttons = document.getElementById("checkinsection");
                         buttons.style.display = "block";
                     },
