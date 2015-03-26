@@ -13,6 +13,8 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
+			var list = [];
+			
 			bluetoothle.initialize(initializeSuccess, initializeError, {
                 "request": true,
                 "statusReceiver": false
@@ -27,6 +29,11 @@
             }
 			
 			function stopScanSuccess(){
+				alert(list.length);
+				if(list.length > 0){
+					alert("shit's in me");
+					alert(list[0]);
+				}
 				//var jsonString = JSON.stringify(list);
 				var email = window.localStorage.getItem("BThereEmail");
 				
@@ -47,7 +54,7 @@
             }
                         
             function stopScanError(){
-                alert("Never Dieing");   
+                alert("Never Dieing");
             }
 			
 			function startScanSuccess(obj) {
@@ -61,8 +68,6 @@
 			function startScanError() {
                 alert("not hello");
             }
-			
-            var list = [];
 
             document.getElementById("join").addEventListener("click", join);
 			//CheckIn -- add the Event Listener.
