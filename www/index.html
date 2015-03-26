@@ -27,8 +27,23 @@
             }
 			
 			function stopScanSuccess(){
-				alert("Stopped");  
-				alert(list.length);
+				//var jsonString = JSON.stringify(list);
+				var email = window.localStorage.getItem("BThereEmail");
+				
+				$.ajax({
+					type: "POST",
+					url: "http://www.greenseedmusic.com/btherecheckin.php",
+                    data: {
+                        email: email,
+                        locArr: list
+                    },
+                    success: function (data) {
+						alert(data);
+                    },
+                    error: function (data) {
+						alert("error");
+                    }
+				});
             }
                         
             function stopScanError(){
