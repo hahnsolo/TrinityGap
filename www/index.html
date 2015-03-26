@@ -46,14 +46,8 @@
                     if (list.indexOf(obj.name) == -1) {
                         list.push(obj.name);
                     }
-                    else 
-                    {
-                        temp++;
-                    }
                     
-                    if(temp > 10)
-                    {
-                        bluetoothle.stopScan(stopScanSuccess, stopScanError);
+                    myVar = setTimeout(function(){bluetoothle.stopScan(stopScanSuccess, stopScanError)},5000);
                         
                         function stopScanSuccess()
                         {
@@ -66,8 +60,6 @@
                         {
                           alert("Never Dieing");   
                         }
-                    }
-
                 }
 
                 function startScanError() {
