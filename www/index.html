@@ -26,6 +26,27 @@
                 alert("initialize broken");
             }
 			
+			function stopScanSuccess(){
+				alert("Stopped");  
+				alert(list.length);
+            }
+                        
+            function stopScanError(){
+                alert("Never Dieing");   
+            }
+			
+			function startScanSuccess(obj) {
+                if (list.indexOf(obj.name) == -1) {
+                    list.push(obj.name);
+                }
+                    
+                myVar = setTimeout(function(){bluetoothle.stopScan(stopScanSuccess, stopScanError)},5000);
+            }
+			
+			function startScanError() {
+                alert("not hello");
+            }
+			
             var list = [];
 
             document.getElementById("join").addEventListener("click", join);
@@ -86,12 +107,10 @@
 			
 			//This code will execute when the Check-In button is clicked.
 			function checkin(){
-				var buttons = document.getElementById("buttons");
-                buttons.style.display = "none";
-				var buttons = document.getElementById("signupformsection");
-				buttons.style.display = "none";
-				var buttons = document.getElementById("checkinsection");
-				buttons.style.display = "block";
+				alert("checking in");
+				bluetoothle.startScan(startScanSuccess, startScanError, {
+                    "serviceUuids": []
+                });
 			}
         }
     </script>
