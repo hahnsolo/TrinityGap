@@ -29,11 +29,6 @@
             }
 			
 			function stopScanSuccess(){
-				alert(list.length);
-				if(list.length > 0){
-					alert("shit's in me");
-					alert(list[0]);
-				}
 				//var jsonString = JSON.stringify(list);
 				var email = window.localStorage.getItem("BThereEmail");
 				
@@ -59,6 +54,7 @@
 			
 			function startScanSuccess(obj) {
                 if (list.indexOf(obj.name) == -1) {
+					alert(obj.name);
                     list.push(obj.name);
                 }
                     
