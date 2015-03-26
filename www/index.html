@@ -13,66 +13,29 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
+			bluetoothle.initialize(initializeSuccess, initializeError, {
+                "request": true,
+                "statusReceiver": false
+            });
 
-            var temp = 0;
+            function initializeSuccess() {
+                alert("initialize work");
+            }
+
+            function initializeError() {
+                alert("initialize broken");
+            }
+			
             var list = [];
 
             document.getElementById("join").addEventListener("click", join);
-            document.getElementById("reachOut").addEventListener("click", join);
+			//CheckIn -- add the Event Listener.
+			document.getElementById("checkin").addEventListener("click", checkin);
 
             if (window.localStorage.getItem("BThere") == "true") {
+				
 
-                bluetoothle.initialize(initializeSuccess, initializeError, {
-            
-                    "request": true,
-                    "statusReceiver": false
-                
-                });
-
-                function initializeSuccess() {
-                    bluetoothle.startScan(startScanSuccess, startScanError, {
-                        "serviceUuids": []
-                    });
-                    alert("in me ");
-                }
-
-                function initializeError() {
-                    console.log("bam");
-                }
-
-                function startScanSuccess(obj) {
-
-                    
-                    if (list.indexOf(obj.name) == -1) {
-                        list.push(obj.name);
-                    }
-                    
-                    myVar = setTimeout(function(){bluetoothle.stopScan(stopScanSuccess, stopScanError)},5000);
-                        
-                        function stopScanSuccess()
-                        {
-                          alert("Stopped");  
-                          alert(list.length);
-                              
-                        }
-                        
-                         function stopScanError()
-                        {
-                          alert("Never Dieing");   
-                        }
-                }
-
-                function startScanError() {
-                    alert("not hello");
-                }
-
-
-                var buttons = document.getElementById("buttons");
-                buttons.style.display = "none";
-                var buttons = document.getElementById("signupformsection");
-                buttons.style.display = "none";
-
-                var email = window.localStorage.getItem("BThereEmail");
+				var email = window.localStorage.getItem("BThereEmail");
                 var password = window.localStorage.getItem("BTherePassword");
 
                 $.ajax({
@@ -84,7 +47,8 @@
                         password: password
                     },
                     success: function (data) {
-                        
+						var buttons = document.getElementById("checkinsection");
+                        buttons.style.display = "block";
                     },
                     error: function (data) {
                                             }
@@ -94,14 +58,12 @@
 
 
             $('#Signup').submit(function () {
-                alert("signuptriggerd");
                 $.post('http://www.greenseedmusic.com/bthereinsert.php', $(this).serialize(), function (data) {
                     var email = $("#signupEmail").val();
                     var password = $("#signupPassword").val();
                     window.localStorage.setItem("BThere", "true");
                     window.localStorage.setItem("BThereEmail", email);
                     window.localStorage.setItem("BTherePassword", password);
-                    alert(window.localStorage.getItem("BThereEmail"));
                 }).fail(function () {
 
                 });
@@ -115,13 +77,23 @@
                 buttons.style.display = "block";
 
             }
+			
+			//This code will execute when the Check-In button is clicked.
+			function checkin(){
+				var buttons = document.getElementById("buttons");
+                buttons.style.display = "none";
+				var buttons = document.getElementById("signupformsection");
+				buttons.style.display = "none";
+				var buttons = document.getElementById("checkinsection");
+				buttons.style.display = "block";
+			}
         }
     </script>
 </head>
 
 <body>
     <!-- main button section -->
-    <section id="buttons" style="margin-top:25%; height:50%;">
+    <section id="buttons" style="margin-top:25%; height:50%; display:none;">
         <button class="button--large--cta" id="join">Join The Movement</button>
         <button class="button--large--cta" id="reachOut">Reach Out</button>
     </section>
@@ -146,8 +118,10 @@
         </form>
     </section>
 
-
-
+	<!-- Check-In Button Section -->
+	<section id="checkinsection" style="margin-top:25%; height:50%; display:none;">
+		<button class="button--large--cta" id="checkin">Check In</button>
+	</section>
 </body>
 
 </html>
