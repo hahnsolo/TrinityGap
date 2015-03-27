@@ -32,10 +32,6 @@
 				//var jsonString = JSON.stringify(list);
 				var email = window.localStorage.getItem("BThereEmail");
 				
-				for(var i = 0; i < list.length; i++){
-					alert(list[i]);
-				}
-				
 				$.ajax({
 					type: "POST",
 					url: "http://www.greenseedmusic.com/btherecheckin.php",
