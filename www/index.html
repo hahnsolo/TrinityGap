@@ -15,7 +15,8 @@
 
         function onDeviceReady() {
 			var list = [];
-            list.push("boobs");
+            var kills;
+            list.push("LocationIds");
 			
 			bluetoothle.initialize(initializeSuccess, initializeError, {
                 "request": true,
@@ -48,6 +49,8 @@
 						alert("error");
                     }
 				});
+               clearTimeout(kills);
+               clearTimeout(myVar);
             }
                         
             function stopScanError(){
@@ -124,10 +127,11 @@
 			
 			//This code will execute when the Check-In button is clicked.
 			function checkin(){
-				alert("checking in");
-				bluetoothle.startScan(startScanSuccess, startScanError, {
+                
+				kills = setTimeout(function(){ bluetoothle.startScan(startScanSuccess, startScanError, {
                     "serviceUuids": []
-                });
+                }); },100);
+				
 			}
         }
     </script>
