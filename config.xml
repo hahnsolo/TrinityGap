@@ -23,10 +23,6 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
     <icon src="icon.png" />
-
-    <gap:splash src="screen-hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi" />
-    <gap:splash src="screen-xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi" />
-
     <access origin="*" />
 
 </widget>
