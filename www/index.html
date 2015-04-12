@@ -20,6 +20,12 @@
             document.getElementById("button3").addEventListener("click", show2);
             document.getElementById("button4").addEventListener("click", show2);
             document.getElementById("back").addEventListener("click", show3);
+            
+            document.getElementById("home1").addEventListener("click", show4);
+            document.getElementById("home2").addEventListener("click", show4);
+            document.getElementById("home3").addEventListener("click", show4);
+
+
 
             document.getElementById("sexy1").addEventListener("click", show);
         }
@@ -37,6 +43,10 @@
         function show3() {
             document.getElementById("final").style.display = "none";
             document.getElementById("welcome").style.display = "block";
+        }
+         function show4() {
+            document.getElementById("final").style.display = "none";
+            document.getElementById("login").style.display = "block";
         }
     </script>
 </head>
@@ -66,7 +76,10 @@
             <br />
             <br />
             <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;">
-                <center>Trinity - IJW Systems 2015</center>
+                <center>Trinity - IJW Systems 2015
+                    <br>
+                    <div id="home3" style="color:blue; font-size:1.5em">Logout</div>
+                </center>
             </div>
             <br>
         </center>
@@ -102,7 +115,10 @@
             <br />
         </center>
         <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;">
-            <center>Trinity - IJW Systems 2015</center>
+            <center>Trinity - IJW Systems 2015
+                <br>
+                <div id="home2" style="color:blue; font-size:1.5em">Logout</div>
+            </center>
         </div>
         <br>
     </section>
@@ -131,7 +147,10 @@
         <br>
 
         <div style="color:red; font-size:1em; padding-left:10%; border-top:thin solid red;">
-            <center>Trinity - IJW Systems 2015</center>
+            <center>Trinity - IJW Systems 2015
+                <br>
+                <div id="home1" style="color:blue; font-size:1.5em">Logout</div>
+                <center>
         </div>
         <br>
     </section>
