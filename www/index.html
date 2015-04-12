@@ -14,20 +14,28 @@
 
         function onDeviceReady() {
             document.getElementById("login").style.display="block";
+            document.getElementById("sexy1").addEventListener("click", displayOptions);
+
+        }
+        
+    function    displayOptions(){
+            
+            document.getElementById("login").style.display ="none";
+            return false;
         }
         
     </script>
 </head>
 
-<body style="height:100%; border:0px; margin:0px;padding:0px;">
+<body style="height:100%; border:0px; margin:0px;padding:0px;background:lightgrey;">
     <!-- login Screen -->
-    <section id="login" style="height:100%; width:100%; background:lightgrey;"> 
+    <section id="login" style="height:100%; width:100%; "> 
         <div style="color:red; font-size:6em; padding-left:5%;">Trinity</div><br />
-        <div style=" font-size:5em; padding-left:18%;">Rehab</div><br />
+       <div style=" font-size:5em; padding-left:18%;">Rehab</div><br />
     <form style="padding-top:5%;text-align:center;"> 
         <input type="text" placeholder="User Name"/ style="width:60%; height:6%;border-radius:10px;padding-left:10px;"><br />
         <input type="text" placeholder="Password" style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px;"/><br /><br />
-        <input type="submit"style="width:70%; height:6%;Background:red;opacity:.6;border-radius:10px;">
+        <input id="sexy1" type="submit"style="width:70%;  height:6%;Background:red;opacity:.6;border-radius:10px;">
     </form>
     
     </section>
