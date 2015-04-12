@@ -15,15 +15,19 @@
             //document.getElementById("login").style.display = "none";
             document.getElementById("final").style.display = "none";
             document.getElementById("welcome").style.display = "none";
-            document.getElementById("sexy1").addEventListener("click",                         show);
+            document.getElementsByClassName("button").addEventListener("click", show2);
+            document.getElementById("sexy1").addEventListener("click", show);
         }
-        
-        function show(){
+
+        function show() {
             document.getElementById("login").style.display = "none";
             document.getElementById("welcome").style.display = "block";
-            
         }
-        
+
+        function show2() {
+            document.getElementById("welcome").style.display = "none";
+            document.getElementById("final").style.display = "block";
+        }
     </script>
 </head>
 
@@ -36,13 +40,21 @@
         <div style=" font-size:5em; padding-left:18%;">Rehab</div>
         <br />
         <center>
-            <input type="text" placeholder="User Name"  style="width:60%; height:6%;border-radius:10px;padding-left:10px;">
+            <input type="text" placeholder="User Name" style="width:60%; height:6%;border-radius:10px;padding-left:10px;">
             <br />
             <input type="text" placeholder="Password" style="margin-top:20px; width:60%; height:6%; border-radius:10px; padding-left:10px;" />
             <br />
             <br />
-            <input id="sexy1" type="button" style="width:70%;  height:6%;Background:red;opacity:.6;border-radius:10px;">
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <input id="sexy1" type="button" value="Submit" style="width:70%;  height:6%;Background:red;opacity:.6;border-radius:10px;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;">
                 <center>Trinity - IJW Systems 2015</center>
             </div>
