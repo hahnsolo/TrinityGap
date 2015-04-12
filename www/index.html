@@ -12,10 +12,18 @@
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-            document.getElementById("login").style.display = "none";
-            
-        
+            //document.getElementById("login").style.display = "none";
+            document.getElementById("final").style.display = "none";
+            document.getElementById("welcome").style.display = "none";
+            document.getElementById("sexy1").addEventListener("click",                         show);
         }
+        
+        function show(){
+            document.getElementById("login").style.display = "none";
+            document.getElementById("welcome").style.display = "block";
+            
+        }
+        
     </script>
 </head>
 
@@ -28,50 +36,75 @@
         <div style=" font-size:5em; padding-left:18%;">Rehab</div>
         <br />
         <center>
-        <input type="text" placeholder="User Name" / style="width:60%; height:6%;border-radius:10px;padding-left:10px;">
-        <br />
-        <input type="text" placeholder="Password" style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px;" />
-        <br />
-        <br />
-        <input id="sexy1" type="button" style="width:70%;  height:6%;Background:red;opacity:.6;border-radius:10px;">
-    <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;"><center>Trinity - IJW Systems 2015</center>  </div><br>
-    </center>
-            </section>
-   
-<section id="welcome" style="height:100%; width:100%; ">
-    <div style="color:red; font-size:2.5em; padding-left:30%;">Welcome</div>
-    
-    <div style=" font-size:2em; padding-left:39%;">John Doe</div>
-    <br /><br /><br /><br />
-
-   <center>    <button type="button" class="button" style="width:60%; height:6%;border-radius:10px;padding-left:10px; border:thin solid red;"> 07/03/15 - Torn Ankle Cartaligde </button>
-            <br /> 
-        <button class="button"  style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px; border:thin solid red;">04/02/15 - Torn Right ACL</button>
-        <br />
-       <button  class="button"  style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px; border:thin solid red;">23/01/15 - Sore Right Hand</button>
-        <br />
-       <button  class="button"  style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px; border:thin solid red;">05/12/14 - Seperated Elbow</button>
-        <br />
-</center>
-    <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;"><center>Trinity - IJW Systems 2015</center> </div><br>
-</section>
-     
-    <section id ="final" style="height:100%; width:100%; border-bottom;"> 
-    <div style="color:red; font-size:2em; padding-left:10%; border-bottom:thin solid red;"><button id="back" style="border-radius: 50%; width: 50px; height: 50px; background:red; opacity:.6;margin-right:10px; font-size:1.2em;" >&larr;</button>Instructions </div><br>
-        <img src="images\pic1.PNG" alt="Ex1" style="width:130px;height:82px; float: left; padding-left:5px;">
-        <p style="padding-left:10px; padding-right:5px;"> Lie down with your legs angles and sit up as you would in a normal sit up.</p><br><br>
-       <img src="images\pic2.PNG" alt="Ex2" style="width:130px;height:92px; float: left; padding-left:5px;">
-        <p style="padding-left:10px; padding-right:5px;">
-        Place one leg on the ground facing down, swing other leg inward</p><br><br><br>
-         <img src="images\pic3.PNG" alt="Ex3" style="width:130px;height:92px; float: left; padding-left:5px">
-        <p style="padding-left:10px; padding-right:5px;"> Lie facing down on your knees and swing free arm forward.</p><br><br><br>
-         <img src="images\pic4.PNG" alt="Ex4" style="width:130px;height:92px; float: left; padding-left:5px">
-        <p style="padding-left:10px; padding-right:5px;">Stretch head upward while faceing down and brace with arms </p><br><br> 
-        <div style="color:red; font-size:1em; padding-left:10%; border-top:thin solid red;"><center>Trinity - IJW Systems 2015</center> </div><br>   
+            <input type="text" placeholder="User Name" / style="width:60%; height:6%;border-radius:10px;padding-left:10px;">
+            <br />
+            <input type="text" placeholder="Password" style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px;" />
+            <br />
+            <br />
+            <input id="sexy1" type="button" style="width:70%;  height:6%;Background:red;opacity:.6;border-radius:10px;">
+            <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;">
+                <center>Trinity - IJW Systems 2015</center>
+            </div>
+            <br>
+        </center>
     </section>
 
-        
-    
+    <section id="welcome" style="height:100%; width:100%; ">
+        <div style="color:red; font-size:2.5em; padding-left:30%;">Welcome</div>
+
+        <div style=" font-size:2em; padding-left:39%;">John Doe</div>
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <center>
+            <button type="button" class="button" style="width:60%; height:6%;border-radius:10px;padding-left:10px; border:thin solid red;">07/03/15 - Torn Ankle Cartaligde</button>
+            <br />
+            <button class="button" style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px; border:thin solid red;">04/02/15 - Torn Right ACL</button>
+            <br />
+            <button class="button" style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px; border:thin solid red;">23/01/15 - Sore Right Hand</button>
+            <br />
+            <button class="button" style="margin-top:20px;width:60%; height:6%; border-radius:10px; padding-left:10px; border:thin solid red;">05/12/14 - Seperated Elbow</button>
+            <br />
+        </center>
+        <div style="color:red; font-size:1em; padding-left:10%;border-top:thin solid red;">
+            <center>Trinity - IJW Systems 2015</center>
+        </div>
+        <br>
+    </section>
+
+    <section id="final" style="height:100%; width:100%; border-bottom;">
+        <div style="color:red; font-size:2em; padding-left:10%; border-bottom:thin solid red;">
+            <button id="back" style="border-radius: 50%; width: 50px; height: 50px; background:red; opacity:.6;margin-right:10px; font-size:1.2em;">&larr;</button>Instructions</div>
+        <br>
+        <img src="images\pic1.PNG" alt="Ex1" style="width:130px;height:82px; float: left; padding-left:5px;">
+        <p style="padding-left:10px; padding-right:5px;">Lie down with your legs angles and sit up as you would in a normal sit up.</p>
+        <br>
+        <br>
+        <img src="images\pic2.PNG" alt="Ex2" style="width:130px;height:92px; float: left; padding-left:5px;">
+        <p style="padding-left:10px; padding-right:5px;">
+            Place one leg on the ground facing down, swing other leg inward</p>
+        <br>
+        <br>
+        <br>
+        <img src="images\pic3.PNG" alt="Ex3" style="width:130px;height:92px; float: left; padding-left:5px">
+        <p style="padding-left:10px; padding-right:5px;">Lie facing down on your knees and swing free arm forward.</p>
+        <br>
+        <br>
+        <br>
+        <img src="images\pic4.PNG" alt="Ex4" style="width:130px;height:92px; float: left; padding-left:5px">
+        <p style="padding-left:10px; padding-right:5px;">Stretch head upward while faceing down and brace with arms</p>
+        <br>
+        <br>
+        <div style="color:red; font-size:1em; padding-left:10%; border-top:thin solid red;">
+            <center>Trinity - IJW Systems 2015</center>
+        </div>
+        <br>
+    </section>
+
+
+
 </body>
 
 </html>
