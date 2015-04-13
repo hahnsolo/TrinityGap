@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <script type="text/javascript" charset="utf-8">
         document.addEventListener("deviceready", onDeviceReady, false);
-        var name;
+        var name = "John Doe";
         function onDeviceReady() {
             //document.getElementById("login").style.display = "none";
             document.getElementById("final").style.display = "none";
@@ -32,6 +32,10 @@
             document.getElementById("login").style.display = "none";
             document.getElementById("welcome").style.display = "block";
             name = document.getElementById("name").value;
+            if(name ==""){
+            document.getElementById("fnh").innerHTML="John Doe";
+        }
+        else
             document.getElementById("fnh").innerHTML=name;
         }
 
@@ -47,6 +51,7 @@
 
         function show4() {
             document.getElementById("final").style.display = "none";
+            document.getElementById("welcome").style.display = "none";
             document.getElementById("login").style.display = "block";
         }
     </script>
