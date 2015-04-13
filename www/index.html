@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <script type="text/javascript" charset="utf-8">
         document.addEventListener("deviceready", onDeviceReady, false);
-
+        var name;
         function onDeviceReady() {
             //document.getElementById("login").style.display = "none";
             document.getElementById("final").style.display = "none";
@@ -31,6 +31,7 @@
         function show() {
             document.getElementById("login").style.display = "none";
             document.getElementById("welcome").style.display = "block";
+            name = document.getElementById("name").value;
         }
 
         function show2() {
@@ -59,7 +60,7 @@
         <div style=" font-size:5em; padding-left:18%;">Rehab</div>
         <br />
         <center>
-            <input type="text" placeholder="User Name" style="width:60%; height:6%;border-radius:10px;padding-left:10px;">
+            <input type="text" id="name" placeholder="User Name" style="width:60%; height:6%;border-radius:10px;padding-left:10px;">
             <br />
             <input type="text" placeholder="Password" style="margin-top:20px; width:60%; height:6%; border-radius:10px; padding-left:10px;" />
             <br />
@@ -85,7 +86,7 @@
     <section id="welcome" style="height:100%; width:100%; ">
         <div style="color:red; font-size:2.5em; padding-left:30%;">Welcome</div>
 
-        <div style=" font-size:2em; padding-left:39%; border-bottom:thin solid red;">John Doe</div>
+        <div style=" font-size:2em; padding-left:39%; border-bottom:thin solid red;">name</div>
         <br />
         <br />
         <br />
